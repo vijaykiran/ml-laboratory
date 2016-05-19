@@ -1,7 +1,7 @@
 # Machine Learning Laboratory
 
 ## Rationale
-A means by which I can fully understand the works behind it machine learning algorithms
+A means by which I can fully understand the works behind: machine learning algorithms
 
 ## KMeans Algorithm
 #### Legend / Terms
