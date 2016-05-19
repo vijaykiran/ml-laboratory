@@ -1,19 +1,17 @@
 package mh.doodles.ml.Algorithm
 
-import mh.doodles.ml.Algorithm.Clustering.KMeans.KMeansTrainingDefaults
+import mh.doodles.ml.Algorithm.Clustering.KMeans.KMeansTrainingConfig
 
 /** class to be extended by all machine learning algorithm trainers */
-abstract class MLTrainer {
+trait MLTrainer {
 
   val appPrefix = "mh.doodles.algorithms.ml."
 
-  def toString: String
+  def parseRawData(inputDataPath: String, separator: Char): Cluster
 
-  def parseRawData(inputDataPath: String, separator: Char): CLUSTER
+  def train(settings: KMeansTrainingConfig): Contenders
 
-  def train(settings: Map[String, Any] = KMeansTrainingDefaults): CONTENDER_LIST
-
-  def evaluate(models: CONTENDER_LIST): CLUSTER
+  def evaluate(models: Contenders): Cluster
 
   def predict(settings: Map[String, Any]): Boolean
 }

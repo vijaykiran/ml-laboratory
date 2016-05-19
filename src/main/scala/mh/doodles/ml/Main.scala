@@ -1,7 +1,5 @@
 package mh.doodles.ml
 
-import mh.doodles.ml.Algorithm.Clustering.KMeans.{KMeansLabelerDefaults, KMeansTrainingDefaults}
-
 object Main {
 
   /** entry point for our application
@@ -27,10 +25,14 @@ object Main {
       def getProperty(property: String): String = properties.
         flatMap(_.split(",")).filter(_.head == property).tail.asInstanceOf[Option[String]].get
 
-      appType match {
-        case AppType.TRAINER => KMeansTrainingDefaults(getProperty("k").toInt)
-        case AppType.LABELER => KMeansLabelerDefaults(getProperty("l"))
-      }
+
+      //TODO : Fix this and return a real configuration object
+      //      appType match {
+      //        case AppType.TRAINER => KMeansTrainingConfig(getProperty("k").toInt)
+      //        case AppType.LABELER => KMeansLabelerConfig(getProperty("l"))
+      //      }
+
+      Map("" -> "")
     }
   }
 }

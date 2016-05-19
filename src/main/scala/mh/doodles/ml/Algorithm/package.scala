@@ -3,14 +3,14 @@ package mh.doodles.ml
 package object Algorithm {
 
   // baseline terms, concepts
-  type FACT = Any
-  type SUBJECT = Seq[FACT]
-  type DATA = Set[SUBJECT]
+  type Fact = Any
+  type Subject = Seq[Fact]
+  type Data = Set[Subject]
 
   // more evolved terms, concepts
-  type FEATURE = Double
-  type POINT = Seq[Double]
-  type CLUSTER = Set[POINT]
-  type CONTENDER_LIST = Set[CLUSTER]
+  type Feature = Double
+  type Point = Seq[Double]
+  type Cluster = Set[Point]
+  type Contenders = Set[Cluster]
 
 }

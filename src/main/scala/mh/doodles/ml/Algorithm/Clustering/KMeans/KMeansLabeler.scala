@@ -1,7 +1,7 @@
 package mh.doodles.ml.Algorithm.Clustering.KMeans
 
-import mh.doodles.ml.Algorithm.{CONTENDER_LIST, CLUSTER}
 import mh.doodles.ml.Algorithm.Clustering.Labeler
+import mh.doodles.ml.Algorithm.{Cluster, Contenders}
 
 class KMeansLabeler extends Labeler {
 
@@ -17,18 +17,17 @@ class KMeansLabeler extends Labeler {
     */
   def configureTraining(propertyList: Map[String, Any]): Unit = ???
 
-  override def parseRawData(inputDataPath: String, separator: Char): CLUSTER = ???
+  override def parseRawData(inputDataPath: String, separator: Char): Cluster = ???
 
-  override def evaluate(models: CONTENDER_LIST): CLUSTER = ???
+  override def evaluate(models: Contenders): Cluster = ???
 
-  override def train(settings: Map[String, Any]): CONTENDER_LIST = ???
+  override def train(settings: KMeansTrainingConfig): Contenders = ???
 
   override def predict(settings: Map[String, Any]): Boolean = ???
 }
 
 /** Default settings for our KMeansLabeler */
-case class KMeansLabelerDefaults(val MODEL: CLUSTER = 123.asInstanceOf[CLUSTER],
-                                 val LABELING_DATA: CLUSTER = Set(Seq(1, 2, 3), Seq(4, 5, 6), Seq(7, 8, 9)),
-                                 val STAGED_PATH: String = "/working-dir/staged/",
-                                 val OUTPUT_PATH: String = "/working-dir/out/"
-                                )
+case class KMeansLabelerConfig(model: Cluster = 123.asInstanceOf[Cluster],
+                               LABELING_DATA: Cluster = Set(Seq(1, 2, 3), Seq(4, 5, 6), Seq(7, 8, 9)),
+                               STAGED_PATH: String = "/working-dir/staged/",
+                               OUTPUT_PATH: String = "/working-dir/out/")

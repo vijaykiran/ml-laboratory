@@ -1,6 +1,6 @@
 package mh.doodles.ml.Algorithm.Clustering.KMeans
 
-import mh.doodles.ml.Algorithm.{POINT, CONTENDER_LIST, CLUSTER, MLTrainer}
+import mh.doodles.ml.Algorithm._
 
 class KMeansTrainer extends MLTrainer {
 
@@ -21,19 +21,19 @@ class KMeansTrainer extends MLTrainer {
     * @param inputDataPath - path to input data file .csv
     * @return
     */
-  override def parseRawData(inputDataPath: String, separator: Char): CLUSTER = ???
+  override def parseRawData(inputDataPath: String, separator: Char): Cluster = ???
 
   /** train a kmeans algorithm with the provided settings
     *
     * @param settings - a series of values used in training a KMeansTrainer model
     */
-  override def train(settings: Map[String, Any]): CONTENDER_LIST = ???
+  override def train(settings: KMeansTrainingConfig): Contenders = ???
 
   /** model tuning stage, select best model output statistics
     *
     * @param models - a set of models produced by out trainer
     */
-  override def evaluate(models: CONTENDER_LIST): CLUSTER = ???
+  override def evaluate(models: Contenders): Cluster = ???
 
   /** perform predictions on test data set using our best produced model
     *
@@ -46,15 +46,15 @@ class KMeansTrainer extends MLTrainer {
     * @param seed - random seed
     * @return
     */
-  def chooseRandomPoint(seed: Int): Set[POINT] = ???
+  def chooseRandomPoint(seed: Int): Set[Point] = ???
 }
 
 /** Default settings for our KMeansTrainer */
-case class KMeansTrainingDefaults(// KMeans
-                                  val K: Int = 2,
-                                  val ITERATIONS: Int = 10,
-                                  val RUNS: Int = 3,
-                                  val TRAINING_DATA: CLUSTER = Set(Seq(1, 2, 3), Seq(4, 5, 6), Seq(7, 8, 9)),
-                                  // I | O
-                                  val STAGED_PATH: String = "/working-dir/staged/",
-                                  val OUTPUT_PATH: String = "/working-dir/out/")
+case class KMeansTrainingConfig(// KMeans
+                                K: Int = 2,
+                                ITERATIONS: Int = 10,
+                                RUNS: Int = 3,
+                                TRAINING_DATA: Cluster = Set(Seq(1, 2, 3), Seq(4, 5, 6), Seq(7, 8, 9)),
+                                // I | O
+                                STAGED_PATH: String = "/working-dir/staged/",
+                                OUTPUT_PATH: String = "/working-dir/out/")
